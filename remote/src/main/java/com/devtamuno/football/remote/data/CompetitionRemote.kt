@@ -21,14 +21,14 @@ data class CompetitionRemote(
     val emblem: String,
 
     @SerialName("area")
-    val area: CompetitionAreaRemote,
+    val area: CompetitionAreaRemote?,
 
     @SerialName("currentSeason")
-    val currentSeason: CompetitionSeasonRemote,
+    val currentSeason: CompetitionSeasonRemote?,
 
     @SerialName("numberOfAvailableSeason")
     val numberOfAvailableSeason: Int?,
 
     @SerialName("lastUpdated")
-    val lastUpdated: String,
+    val lastUpdated: String?,
 )
