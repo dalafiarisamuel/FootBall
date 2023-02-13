@@ -3,6 +3,7 @@ package com.devtamuno.football.remote.repository
 import com.devtamuno.football.remote.api.FootballService
 import com.devtamuno.football.remote.data.GetAllCompetitionRemote
 import com.devtamuno.football.remote.data.GetAllTeamsInCompetitionRemote
+import com.devtamuno.football.remote.data.GetCompetitionRemote
 
 internal class FootballRemoteRepositoryImpl(private val service: FootballService) :
     FootballRemoteRepository {
@@ -13,6 +14,10 @@ internal class FootballRemoteRepositoryImpl(private val service: FootballService
     override suspend fun getTeamsInCompetition(competitionId: Int)
             : Resource<GetAllTeamsInCompetitionRemote> {
         return resourceHelper { service.getTeamsInCompetition(competitionId) }
+    }
+
+    override suspend fun getCompetition(competitionCode: String): Resource<GetCompetitionRemote> {
+        return resourceHelper { service.getCompetition(competitionCode) }
     }
 
     override suspend fun getAllTeamsFixtures() {

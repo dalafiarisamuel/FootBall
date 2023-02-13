@@ -16,4 +16,7 @@ data class CompetitionSeasonRemote(
 
     @SerialName("currentMatchDay")
     val currentMatchDay: Int?,
+
+    @SerialName("winner")
+    val winner: WinnerRemote?
 )
