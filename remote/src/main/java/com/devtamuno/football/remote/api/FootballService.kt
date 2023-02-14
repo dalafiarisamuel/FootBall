@@ -19,7 +19,8 @@ internal interface FootballService {
     @GET("competitions/{competition_code}")
     suspend fun getCompetition(@Path("competition_code") competitionCode: String): GetCompetitionRemote
 
-    suspend fun getAllTeamsFixtures()
+    @GET("competitions/{competition_code}/matches")
+    suspend fun getAllTeamsFixtures(@Path("competition_code") competitionCode: String)
 
     suspend fun getAllMatchesInCompetition()
 
