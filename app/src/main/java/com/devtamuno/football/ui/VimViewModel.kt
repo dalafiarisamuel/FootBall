@@ -16,7 +16,7 @@ class VimViewModel @Inject constructor(
 
     fun getFootballServices() {
         viewModelScope.launch {
-            val result = repository.getCompetition("PL")
+            val result = repository.getAllMatchesInCompetition("PL")
             when (result) {
                 is Resource.Failure -> {
                     println("VimViewModelError" + result.exception)

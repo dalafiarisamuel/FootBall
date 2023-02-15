@@ -19,29 +19,32 @@ data class TeamRemote(
     val tla: String,
 
     @SerialName("address")
-    val address: String,
+    val address: String?,
 
     @SerialName("website")
-    val website: String,
+    val website: String?,
 
     @SerialName("founded")
     val founded: Int?,
 
     @SerialName("clubColors")
-    val clubColors: String,
+    val clubColors: String?,
 
     @SerialName("venue")
-    val venue: String,
+    val venue: String?,
+
+    @SerialName("crest")
+    val crest: String?,
 
     @SerialName("area")
-    val area: CompetitionAreaRemote,
+    val area: CompetitionAreaRemote?,
 
     @SerialName("coach")
-    val coach: CoachRemote,
+    val coach: CoachRemote?,
 
     @SerialName("squad")
-    val squad: List<PlayerRemote>,
+    val squad: List<PlayerRemote>?,
 
     @SerialName("runningCompetitions")
-    val runningCompetitions: List<CompetitionRemote>,
+    val runningCompetitions: List<CompetitionRemote>?,
 )

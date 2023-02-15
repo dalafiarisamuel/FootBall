@@ -1,5 +1,7 @@
-package com.devtamuno.football.remote.data
+package com.devtamuno.football.remote.data.response
 
+import com.devtamuno.football.remote.data.CompetitionAreaRemote
+import com.devtamuno.football.remote.data.CompetitionSeasonRemote
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.SerialName
 

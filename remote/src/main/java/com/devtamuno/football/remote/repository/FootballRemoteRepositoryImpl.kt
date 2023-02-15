@@ -1,9 +1,10 @@
 package com.devtamuno.football.remote.repository
 
 import com.devtamuno.football.remote.api.FootballService
-import com.devtamuno.football.remote.data.GetAllCompetitionRemote
-import com.devtamuno.football.remote.data.GetAllTeamsInCompetitionRemote
-import com.devtamuno.football.remote.data.GetCompetitionRemote
+import com.devtamuno.football.remote.data.response.GetAllCompetitionRemote
+import com.devtamuno.football.remote.data.response.GetAllTeamsInCompetitionRemote
+import com.devtamuno.football.remote.data.response.GetCompetitionMatchesRemote
+import com.devtamuno.football.remote.data.response.GetCompetitionRemote
 
 internal class FootballRemoteRepositoryImpl(private val service: FootballService) :
     FootballRemoteRepository {
@@ -20,11 +21,13 @@ internal class FootballRemoteRepositoryImpl(private val service: FootballService
         return resourceHelper { service.getCompetition(competitionCode) }
     }
 
-    override suspend fun getAllTeamsFixtures() {
-        TODO("Not yet implemented")
+    override suspend fun getAllMatchesInCompetition(competitionCode: String)
+            : Resource<GetCompetitionMatchesRemote> {
+        return resourceHelper { service.getAllMatchesInCompetition(competitionCode) }
     }
 
-    override suspend fun getAllMatchesInCompetition() {
+
+    override suspend fun getAllTeamsFixtures() {
         TODO("Not yet implemented")
     }
 

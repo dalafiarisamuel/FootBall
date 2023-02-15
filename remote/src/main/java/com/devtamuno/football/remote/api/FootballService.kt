@@ -1,9 +1,9 @@
 package com.devtamuno.football.remote.api
 
-import com.devtamuno.football.remote.data.GetAllCompetitionRemote
-import com.devtamuno.football.remote.data.GetAllTeamsInCompetitionRemote
-import com.devtamuno.football.remote.data.GetCompetitionRemote
-import com.devtamuno.football.remote.repository.Resource
+import com.devtamuno.football.remote.data.response.GetAllCompetitionRemote
+import com.devtamuno.football.remote.data.response.GetAllTeamsInCompetitionRemote
+import com.devtamuno.football.remote.data.response.GetCompetitionMatchesRemote
+import com.devtamuno.football.remote.data.response.GetCompetitionRemote
 import retrofit2.http.GET
 import retrofit2.http.Path
 
@@ -20,9 +20,9 @@ internal interface FootballService {
     suspend fun getCompetition(@Path("competition_code") competitionCode: String): GetCompetitionRemote
 
     @GET("competitions/{competition_code}/matches")
-    suspend fun getAllTeamsFixtures(@Path("competition_code") competitionCode: String)
+    suspend fun getAllMatchesInCompetition(@Path("competition_code") competitionCode: String): GetCompetitionMatchesRemote
 
-    suspend fun getAllMatchesInCompetition()
+    suspend fun getAllTeamsFixtures()
 
     suspend fun getCompetitionTimeTable()
 }
