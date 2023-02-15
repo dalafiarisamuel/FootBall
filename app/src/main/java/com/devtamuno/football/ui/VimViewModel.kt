@@ -19,7 +19,7 @@ class VimViewModel @Inject constructor(
             val result = repository.getAllMatchesInCompetition("PL")
             when (result) {
                 is Resource.Failure -> {
-                    println("VimViewModelError" + result.exception)
+                    println("VimViewModelError" + result)
                 }
                 is Resource.Success -> {
                     println("VimViewModelSuccess" + result.result)
