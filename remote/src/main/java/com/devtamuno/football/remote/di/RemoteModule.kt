@@ -25,7 +25,21 @@ import retrofit2.Retrofit
 internal object RemoteModule {
 
     @[Provides Singleton]
-    fun providesRetrofit(): Retrofit {
+    fun providesRetrofit(client: OkHttpClient): Retrofit {
+
+        val config = Json {
+            ignoreUnknownKeys = true
+            explicitNulls = false
+        }
+
+        return Retrofit.Builder()
+            .baseUrl("https://api.football-data.org/v4/")
+            .addConverterFactory(config.asConverterFactory("application/json".toMediaType()))
+            .client(client).build()
+    }
+
+    @[Provides Singleton]
+    fun provideOkHttpClient(): OkHttpClient {
 
         val okHttpBuilder = OkHttpClient.Builder()
             .connectTimeout(120, TimeUnit.SECONDS)
@@ -39,14 +53,7 @@ internal object RemoteModule {
             chain.proceed(newRequest.build())
         }
 
-        val config = Json {
-            ignoreUnknownKeys = true
-            explicitNulls = false
-        }
-
-        return Retrofit.Builder().baseUrl("https://api.football-data.org/v4/")
-            .addConverterFactory(config.asConverterFactory("application/json".toMediaType()))
-            .client(okHttpBuilder.build()).build()
+        return okHttpBuilder.build()
     }
 
     @[Provides Singleton]

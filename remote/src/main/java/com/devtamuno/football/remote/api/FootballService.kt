@@ -13,7 +13,7 @@ internal interface FootballService {
     suspend fun getAllCompetitions(): GetAllCompetitionRemote
 
     @GET("competitions/{competition_id}/teams")
-    suspend fun getTeamsInCompetition(@Path("competitionId") teamCode: Int)
+    suspend fun getTeamsInCompetition(@Path("competitionId") competitionId: Int)
             : GetAllTeamsInCompetitionRemote
 
     @GET("competitions/{competition_code}")
