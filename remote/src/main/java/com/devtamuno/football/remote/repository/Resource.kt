@@ -38,7 +38,7 @@ private fun getErrorMessage(response: Response<*>?): ErrorDataRemote? {
     return try {
         val errorBody = response?.errorBody()?.byteStream()?.readBytes()?.let { String(it) }
             ?: return null
-        return config.decodeFromString<ErrorDataRemote>(errorBody)
+        return config.decodeFromString(errorBody)
     } catch (e: Exception) {
         null
     }
