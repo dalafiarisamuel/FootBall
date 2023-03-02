@@ -14,8 +14,4 @@ interface FootballRemoteRepository {
     suspend fun getCompetition(competitionCode: String): Resource<GetCompetitionRemote>
 
     suspend fun getAllMatchesInCompetition(competitionCode: String): Resource<GetCompetitionMatchesRemote>
-
-    suspend fun getAllTeamsFixtures()
-
-    suspend fun getCompetitionTimeTable()
 }

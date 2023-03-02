@@ -26,12 +26,4 @@ internal class FootballRemoteRepositoryImpl(private val service: FootballService
         return resourceHelper { service.getAllMatchesInCompetition(competitionCode) }
     }
 
-
-    override suspend fun getAllTeamsFixtures() {
-        TODO("Not yet implemented")
-    }
-
-    override suspend fun getCompetitionTimeTable() {
-        TODO("Not yet implemented")
-    }
 }
