@@ -25,7 +25,7 @@ suspend fun <R> resourceHelper(body: suspend () -> R): Resource<R> {
         Resource.Success(body())
     } catch (e: HttpException) {
         val errorDataRemote = getErrorMessage(e.response())
-        if (errorDataRemote == null) Resource.Failure("Check your network connection")
+        if (errorDataRemote == null) Resource.Failure(e.message ?: "Error ${e.code()}")
         else Resource.Failure(errorDataRemote.message)
     } catch (_: IOException) {
         Resource.Failure("Check your network connection")
