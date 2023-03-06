@@ -29,6 +29,9 @@ data class CompetitionRemote(
     @SerialName("numberOfAvailableSeason")
     val numberOfAvailableSeason: Int?,
 
+    @SerialName("seasons")
+    val seasons: List<CompetitionSeasonRemote>?,
+
     @SerialName("lastUpdated")
     val lastUpdated: String?,
 )

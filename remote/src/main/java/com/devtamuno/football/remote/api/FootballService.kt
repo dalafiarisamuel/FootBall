@@ -1,9 +1,9 @@
 package com.devtamuno.football.remote.api
 
+import com.devtamuno.football.remote.data.CompetitionRemote
 import com.devtamuno.football.remote.data.response.GetAllCompetitionRemote
 import com.devtamuno.football.remote.data.response.GetAllTeamsInCompetitionRemote
 import com.devtamuno.football.remote.data.response.GetCompetitionMatchesRemote
-import com.devtamuno.football.remote.data.response.GetCompetitionRemote
 import retrofit2.http.GET
 import retrofit2.http.Path
 
@@ -17,7 +17,7 @@ internal interface FootballService {
             : GetAllTeamsInCompetitionRemote
 
     @GET("competitions/{competition_code}")
-    suspend fun getCompetition(@Path("competition_code") competitionCode: String): GetCompetitionRemote
+    suspend fun getCompetition(@Path("competition_code") competitionCode: String): CompetitionRemote
 
     @GET("competitions/{competition_code}/matches")
     suspend fun getAllMatchesInCompetition(@Path("competition_code") competitionCode: String): GetCompetitionMatchesRemote

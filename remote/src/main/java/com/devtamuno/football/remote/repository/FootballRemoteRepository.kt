@@ -1,9 +1,9 @@
 package com.devtamuno.football.remote.repository
 
+import com.devtamuno.football.remote.data.CompetitionRemote
 import com.devtamuno.football.remote.data.response.GetAllCompetitionRemote
 import com.devtamuno.football.remote.data.response.GetAllTeamsInCompetitionRemote
 import com.devtamuno.football.remote.data.response.GetCompetitionMatchesRemote
-import com.devtamuno.football.remote.data.response.GetCompetitionRemote
 
 interface FootballRemoteRepository {
 
@@ -11,7 +11,7 @@ interface FootballRemoteRepository {
 
     suspend fun getTeamsInCompetition(competitionId: Int): Resource<GetAllTeamsInCompetitionRemote>
 
-    suspend fun getCompetition(competitionCode: String): Resource<GetCompetitionRemote>
+    suspend fun getCompetition(competitionCode: String): Resource<CompetitionRemote>
 
     suspend fun getAllMatchesInCompetition(competitionCode: String): Resource<GetCompetitionMatchesRemote>
 }
